@@ -1,0 +1,15 @@
+#include <avr/io.h>             /* Defines pins, ports, etc */
+#define LED_OUTPUT		PORTD
+#define PIR_Input		PINC
+
+int main(void)
+{
+	DDRC = 0x00;	/* Set the PIR port as input port */
+	DDRD = 0xff;	/* Set the LED port as output port */
+
+    while(1)
+    {
+        LED_OUTPUT = PIR_Input;
+	}
+	return 0;
+}
